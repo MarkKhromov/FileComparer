@@ -1,1 +1,0 @@
-D:\GitHub\Projects\FileComparer\FileComparer\bin\Debug\FileComparer.exe.config
