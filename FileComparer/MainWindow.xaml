@@ -6,7 +6,9 @@
         Width="450"
         Height="150">
     <Grid>
-        <Button Content="Загрузка" Width="100" Height="30" Command="{Binding}" />
-
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" />
+            <Button Content="Загрузка" Width="100" Height="30" Command="{Binding LoadFileCommand}" />
+        </StackPanel>
     </Grid>
 </Window>
