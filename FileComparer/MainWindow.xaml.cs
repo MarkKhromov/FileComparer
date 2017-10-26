@@ -11,7 +11,7 @@ namespace FileComparer {
 
         void LoadFile() {
             var dialog = new OpenFileDialog();
-            dialog.Filter = "Текстовые документы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            dialog.Filter = FilterStringBuilder.Build(FileFormats.Txt, FileFormats.All);
             if(dialog.ShowDialog(this) == true) {
                 string filename = dialog.FileName;
                 //label1.Text = filename.Split('\\')[filename.Split('\\').Length - 1];
