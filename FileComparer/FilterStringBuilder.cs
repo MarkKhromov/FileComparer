@@ -17,13 +17,11 @@ namespace FileComparer {
         #endregion
 
         static FilterStringBuilder() {
-            FileFormatInfos = new Dictionary<FileFormats, FileFormatInfo> {
-                { FileFormats.All, new FileFormatInfo("Все файлы", new[] { "*" }) },
-                { FileFormats.Txt, new FileFormatInfo("Текстовые документы", new[] { "txt" }) }
-            };
+            Register(FileFormats.All, "Все файлы", "*");
+            Register(FileFormats.Txt, "Текстовые документы", "txt");
         }
 
-        static readonly IDictionary<FileFormats, FileFormatInfo> FileFormatInfos;
+        static readonly IDictionary<FileFormats, FileFormatInfo> FileFormatInfos = new Dictionary<FileFormats, FileFormatInfo>();
 
         public static string Build(params FileFormats[] fileFormats) {
             var filters = new Collection<string>();
@@ -33,6 +31,10 @@ namespace FileComparer {
                 filters.Add($"{fileFormatInfo.DisplayText} ({string.Join(", ", fileExtensions)})|{string.Join(";", fileExtensions)}");
             }
             return string.Join("|", filters);
+        }
+
+        static void Register(FileFormats fileFormat, string displayName, params string[] fileExtensions) {
+            FileFormatInfos.Add(fileFormat, new FileFormatInfo(displayName, fileExtensions));
         }
     }
 }
