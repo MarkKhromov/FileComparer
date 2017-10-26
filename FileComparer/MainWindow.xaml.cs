@@ -30,7 +30,7 @@ namespace FileComparer
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new OpenFileDialog();
-            dialog.Filter = "txt files All files (*.*)|*.*";
+            dialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             if (dialog.ShowDialog() == true)
             {
                 string filename = dialog.FileName;
@@ -49,7 +49,7 @@ namespace FileComparer
                 //label1.Text = "Файл не выбран";
             }   
         }
-        public string getFileExtension(string fileName)
+        public string GetFileExtension(string fileName)
         {
             return fileName.Substring(fileName.LastIndexOf(".") + 1);
         }
