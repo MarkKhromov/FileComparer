@@ -6,7 +6,7 @@
         Width="450"
         Height="150">
     <Grid>
-        <Button Content="Загрузка" Width="100" Height="30" Click="Button_Click"/>
+        <Button Content="Загрузка" Width="100" Height="30" Command="{Binding}" />
 
     </Grid>
 </Window>

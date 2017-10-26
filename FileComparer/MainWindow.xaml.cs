@@ -1,56 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.IO;
 using Microsoft.Win32;
 
-namespace FileComparer
-{
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+namespace FileComparer {
+    public partial class MainWindow : Window {
+        public MainWindow() {
             InitializeComponent();
+            DataContext = new Command(LoadFile, () => true);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        void LoadFile() {
             var dialog = new OpenFileDialog();
-            dialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            if (dialog.ShowDialog() == true)
-            {
+            dialog.Filter = "Текстовые документы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            if(dialog.ShowDialog(this) == true) {
                 string filename = dialog.FileName;
                 //label1.Text = filename.Split('\\')[filename.Split('\\').Length - 1];
-                using (var sr = new StreamReader(filename))
-                {
+                using(var sr = new StreamReader(filename)) {
                     //string line;
                     //while ((line = sr.ReadLine()) != null)
                     //{
-                       
+
                     //}
                 }
-            }
-            else
-            {
+            } else {
                 //label1.Text = "Файл не выбран";
-            }   
+            }
         }
-        public string GetFileExtension(string fileName)
-        {
+        public string GetFileExtension(string fileName) {
             return fileName.Substring(fileName.LastIndexOf(".") + 1);
         }
     }
