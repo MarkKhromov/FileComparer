@@ -2,7 +2,7 @@
 using System.Windows.Input;
 
 namespace FileComparer {
-    class Command : ICommand {
+    public class Command : ICommand {
         public Command(Action action, Func<bool> canExecute) {
             this.action = action ?? throw new ArgumentNullException(nameof(action));
             this.canExecute = canExecute ?? throw new ArgumentNullException(nameof(canExecute));
