@@ -6,9 +6,14 @@
         Width="450"
         Height="150">
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" />
-            <Button Content="Загрузка" Width="100" Height="30" Command="{Binding LoadFileCommand}" />
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Margin="20" Content="Загрузка Файла" Width="130" Height="30" Command="{Binding LoadFileCommand}" />
+                <Button Margin="20" Content="Загрузка Директории" Width="130" Height="30" Command="" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

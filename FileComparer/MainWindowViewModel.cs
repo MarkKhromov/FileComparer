@@ -24,14 +24,12 @@ namespace FileComparer {
                 RaisePropertyChanged(nameof(FileName));
             }
         }
-
         void LoadFile() {
             var dialog = new OpenFileDialog {
                 Filter = FilterStringBuilder.Build(FileFormats.Txt, FileFormats.All)
             };
             if(dialog.ShowDialog(mainWindow) == true) {
                 FileName = dialog.FileName;
-                //label1.Text = filename.Split('\\')[filename.Split('\\').Length - 1];
                 using(var sr = new StreamReader(FileName)) {
                     //string line;
                     //while ((line = sr.ReadLine()) != null)
