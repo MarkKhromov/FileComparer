@@ -6,9 +6,5 @@ namespace FileComparer {
             InitializeComponent();
             DataContext = new MainWindowViewModel(this);
         }
-
-        public string GetFileExtension(string fileName) {
-            return fileName.Substring(fileName.LastIndexOf(".") + 1);
-        }
     }
 }
