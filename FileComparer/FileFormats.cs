@@ -1,5 +1,5 @@
 ﻿namespace FileComparer {
-    enum FileFormats {
+    public enum FileFormats {
         All,
         Txt
     }
