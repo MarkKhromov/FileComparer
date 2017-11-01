@@ -62,6 +62,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Command.cs" />
+    <Compile Include="Comparers\TextCompare.cs" />
     <Compile Include="FileFormats.cs" />
     <Compile Include="FilterStringBuilder.cs" />
     <Compile Include="MainWindow.xaml.cs">
