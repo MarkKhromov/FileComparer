@@ -4,14 +4,12 @@ using System.Windows.Input;
 namespace FileComparer {
     class MainWindowViewModel : INotifyPropertyChanged {
         public MainWindowViewModel(MainWindow mainWindow) {
-            this.mainWindow = mainWindow;
             mainWindowModel = new MainWindowModel(mainWindow, fileName);
             LoadFileCommand = new Command(mainWindowModel.LoadFile, () => true);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        readonly MainWindow mainWindow;
+        
         readonly MainWindowModel mainWindowModel;
 
         public ICommand LoadFileCommand { get; }
